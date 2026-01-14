@@ -2,19 +2,19 @@ databases:
 - name: temporal-db
   databaseName: temporal
   user: temporal
-  plan: Basic
+  plan: starter
   region: frankfurt
 - name: temporal-db-visibility
   databaseName: visibility
   user: visibility
-  plan: basic
+  plan: starter
   region: frankfurt
 
 services:
 - type: pserv
   name: temporal
   autoDeploy: false
-  plan: basic
+  plan: starter
   region: frankfurt
   env: docker
   dockerfilePath: ./server/Dockerfile
