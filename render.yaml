@@ -73,6 +73,7 @@ services:
     fromDatabase:
       name: temporal-db-visibility
       property: host
+
 - type: web
   name: temporal-ui
   autoDeploy: false
@@ -82,12 +83,8 @@ services:
   dockerfilePath: ./web/Dockerfile
   envVars:
   - key: TEMPORAL_UI_PORT
-    value: 8080
+    value: "8080"
   - key: TEMPORAL_ADDRESS
     value: temporal:7233
   - key: TEMPORAL_UI_ENABLED
-    value: true
-  - key: TEMPORAL_DEFAULT_NAMESPACE
-    value: default
-  - key: TEMPORAL_NOTIFY_ON_NEW_VERSION
-    value: false
+    value: "true"
