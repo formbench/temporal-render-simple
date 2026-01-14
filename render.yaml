@@ -2,20 +2,20 @@ databases:
 - name: temporal-db
   databaseName: temporal
   user: temporal
-  plan: Starter
-  region: oregon
+  plan: Basic
+  region: frankfurt
 - name: temporal-db-visibility
   databaseName: visibility
   user: visibility
-  plan: Starter
-  region: oregon
+  plan: Basic
+  region: frankfurt
 
 services:
 - type: pserv
   name: temporal
   autoDeploy: false
-  plan: Starter
-  region: oregon
+  plan: Basic
+  region: frankfurt
   env: docker
   dockerfilePath: ./server/Dockerfile
   envVars:
@@ -77,7 +77,7 @@ services:
   name: temporal-ui
   autoDeploy: false
   plan: Starter
-  region: oregon
+  region: frankfurt
   env: docker
   dockerfilePath: ./web/Dockerfile
   envVars:
@@ -86,34 +86,6 @@ services:
   - key: TEMPORAL_PERMIT_WRITE_API
     value: true
   - key: TEMPORAL_GRPC_HOST
-    fromService:
-      name: temporal
-      type: pserv
-      property: host
-- type: web
-  repo: https://github.com/render-examples/sample-temporal-app
-  name: app-workflow-trigger
-  plan: Starter
-  region: oregon
-  env: go
-  buildCommand: go build start/main.go
-  startCommand: ./main
-  envVars:
-  - key: TEMPORAL_CLUSTER_HOST
-    fromService:
-      name: temporal
-      type: pserv
-      property: host
-- type: worker
-  repo: https://github.com/render-examples/sample-temporal-app
-  name: app-worker
-  plan: Starter
-  region: oregon
-  env: go
-  buildCommand: go build worker/main.go
-  startCommand: ./main
-  envVars:
-  - key: TEMPORAL_CLUSTER_HOST
     fromService:
       name: temporal
       type: pserv
