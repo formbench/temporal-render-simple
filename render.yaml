@@ -81,12 +81,13 @@ services:
   env: docker
   dockerfilePath: ./web/Dockerfile
   envVars:
-  - key: PORT
-    value: 8088
-  - key: TEMPORAL_PERMIT_WRITE_API
+  - key: TEMPORAL_UI_PORT
+    value: 8080
+  - key: TEMPORAL_ADDRESS
+    value: temporal:7233
+  - key: TEMPORAL_UI_ENABLED
     value: true
-  - key: TEMPORAL_GRPC_HOST
-    fromService:
-      name: temporal
-      type: pserv
-      property: host
+  - key: TEMPORAL_DEFAULT_NAMESPACE
+    value: default
+  - key: TEMPORAL_NOTIFY_ON_NEW_VERSION
+    value: false
