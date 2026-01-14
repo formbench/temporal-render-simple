@@ -2,12 +2,12 @@ databases:
 - name: temporal-db
   databaseName: temporal
   user: temporal
-  plan: starter
+  plan: basic-256mb
   region: frankfurt
 - name: temporal-db-visibility
   databaseName: visibility
   user: visibility
-  plan: starter
+  plan: basic-256mb
   region: frankfurt
 
 services:
