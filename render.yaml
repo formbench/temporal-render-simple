@@ -7,14 +7,14 @@ databases:
 - name: temporal-db-visibility
   databaseName: visibility
   user: visibility
-  plan: Basic
+  plan: basic
   region: frankfurt
 
 services:
 - type: pserv
   name: temporal
   autoDeploy: false
-  plan: Basic
+  plan: basic
   region: frankfurt
   env: docker
   dockerfilePath: ./server/Dockerfile
@@ -76,7 +76,7 @@ services:
 - type: web
   name: temporal-ui
   autoDeploy: false
-  plan: Starter
+  plan: starter
   region: frankfurt
   env: docker
   dockerfilePath: ./web/Dockerfile
